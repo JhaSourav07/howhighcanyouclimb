@@ -9,10 +9,9 @@ export class Platform {
   constructor(scene: Phaser.Scene, data: PlatformData) {
     this.data = data;
 
-    // In authentic gameplay, platforms are rendered by the background pixel art.
-    // Collision rectangles are invisible unless debug hitboxes are enabled.
-    const color = data.isSlippery ? 0x90caf9 : 0x5d4037;
-    const alpha = PHYSICS_CONFIG.DEBUG_DRAW_HITBOXES ? 0.6 : 0;
+    // Distinct color palette with crisp outline for high visual readability
+    const color = data.isSlippery ? 0x90caf9 : 0x5d4037; // Ice blue or stone brown
+    const alpha = 0.75;
 
     this.gameObject = scene.add.rectangle(
       data.x,
@@ -23,10 +22,10 @@ export class Platform {
       alpha
     );
     this.gameObject.setOrigin(0.5, 0.5);
-    this.gameObject.setDepth(2);
-    if (!PHYSICS_CONFIG.DEBUG_DRAW_HITBOXES) {
-      this.gameObject.setVisible(false);
-    }
+    // Depth 4 renders above foreground background tiles (depth 3) and below player (depth 10)
+    this.gameObject.setDepth(4);
+    this.gameObject.setStrokeStyle(1.5, data.isSlippery ? 0xbbdefb : 0x8d6e63, 0.9);
+    this.gameObject.setVisible(true);
   }
 
   public setVisible(visible: boolean): void {

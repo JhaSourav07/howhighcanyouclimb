@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useGameStore } from '@/store/gameStore';
-import { Volume2, VolumeX, RotateCcw } from 'lucide-react';
+import { Volume2, VolumeX, RotateCcw, Layers } from 'lucide-react';
 
 interface GameHUDProps {
   onReset: () => void;
@@ -18,7 +18,9 @@ export const GameHUD: React.FC<GameHUDProps> = ({ onReset }) => {
     jumpCount,
     fallsCount,
     isMuted,
+    showPlatformGuides,
     toggleMute,
+    togglePlatformGuides,
   } = useGameStore();
 
   return (
@@ -34,6 +36,20 @@ export const GameHUD: React.FC<GameHUDProps> = ({ onReset }) => {
         </div>
 
         <div className="flex gap-2 pointer-events-auto">
+          <button
+            type="button"
+            onClick={(e) => {
+              (e.currentTarget as HTMLElement)?.blur();
+              togglePlatformGuides();
+            }}
+            className={`p-1.5 rounded bg-black/60 border ${
+              showPlatformGuides ? 'border-amber-500/60 text-amber-300' : 'border-neutral-800 text-neutral-500'
+            } hover:text-white focus-visible:ring-2 focus-visible:ring-amber-400 outline-none transition-colors`}
+            aria-label="Toggle Platform Blocks (Press B)"
+            title="Toggle Platform Blocks (Press B)"
+          >
+            <Layers size={16} />
+          </button>
           <button
             type="button"
             onClick={(e) => {

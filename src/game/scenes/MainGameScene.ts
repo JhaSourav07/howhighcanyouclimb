@@ -110,6 +110,16 @@ export class MainGameScene extends Phaser.Scene {
     // Initial HUD update & offscreen culling
     this.cullOffscreenObjects(0);
     this.updateHUD();
+
+    // Subscribe to store for platform guides toggle
+    const unsubscribeGuides = useGameStore.subscribe((state, prevState) => {
+      if (state.showPlatformGuides !== prevState.showPlatformGuides) {
+        this.cullOffscreenObjects(this.cameraSystem.getScreenIndex());
+      }
+    });
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      unsubscribeGuides();
+    });
   }
 
   private createParticleTextures(): void {
@@ -234,6 +244,8 @@ export class MainGameScene extends Phaser.Scene {
   }
 
   private cullOffscreenObjects(currentScreen: number): void {
+    const showGuides = useGameStore.getState().showPlatformGuides;
+
     // Only render environment slices and platforms within +-1 screen of active room
     for (const item of this.environmentSprites) {
       const isVisible = Math.abs(item.screenIndex - currentScreen) <= 1;
@@ -242,7 +254,7 @@ export class MainGameScene extends Phaser.Scene {
 
     for (const plat of this.platforms) {
       const isVisible = Math.abs(plat.data.screenIndex - currentScreen) <= 1;
-      plat.setVisible(isVisible);
+      plat.setVisible(isVisible && showGuides);
     }
   }
 

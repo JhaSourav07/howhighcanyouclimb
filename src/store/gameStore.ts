@@ -17,8 +17,10 @@ interface GameStore extends GameHUDState, TutorialState {
   isMuted: boolean;
   isPaused: boolean;
   isVictory: boolean;
+  showPlatformGuides: boolean;
   toggleMute: () => void;
   togglePause: () => void;
+  togglePlatformGuides: () => void;
   triggerVictory: () => void;
   updateHUD: (update: Partial<GameHUDState>) => void;
   incrementJump: () => void;
@@ -64,6 +66,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   isMuted: getInitialMuteState(),
   isPaused: false,
   isVictory: false,
+  showPlatformGuides: true,
 
   // Tutorial initial state
   isTutorialActive: getInitialTutorialState(),
@@ -86,6 +89,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
       return { isMuted: nextMuted };
     }),
   togglePause: () => set((state) => ({ isPaused: !state.isPaused })),
+  togglePlatformGuides: () =>
+    set((state) => ({ showPlatformGuides: !state.showPlatformGuides })),
   triggerVictory: () => set({ isVictory: true }),
   updateHUD: (update) => set((state) => ({ ...state, ...update })),
   incrementJump: () => set((state) => ({ jumpCount: state.jumpCount + 1 })),

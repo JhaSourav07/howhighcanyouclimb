@@ -52,11 +52,13 @@ export const GameContainer: React.FC = () => {
         togglePause();
       } else if (e.code === 'KeyR' && !e.repeat) {
         handleReset();
+      } else if (e.code === 'KeyB' && !e.repeat) {
+        useGameStore.getState().togglePlatformGuides();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [togglePause]);
+  }, [togglePause, handleReset]);
 
   return (
     <main className="fixed inset-0 w-screen h-screen bg-[#080808] flex items-center justify-center p-0 md:p-4 overflow-hidden select-none">

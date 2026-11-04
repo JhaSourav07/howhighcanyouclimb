@@ -212,6 +212,11 @@ export class MainGameScene extends Phaser.Scene {
       this.prevScreenIndex = curScreen;
     }
 
+    // Check for summit victory
+    if (this.levelManager.isSummitReached(this.playerPhysics.position.y)) {
+      useGameStore.getState().triggerVictory();
+    }
+
     // Synchronize HUD state with React store
     this.updateHUD();
   }

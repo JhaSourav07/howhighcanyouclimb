@@ -6,6 +6,7 @@ import { GameHUD } from './GameHUD';
 import { MobileControls } from './MobileControls';
 import { DesktopAdSlot } from './DesktopAdSlot';
 import { PauseModal } from './PauseModal';
+import { VictoryModal } from './VictoryModal';
 import { useGameStore } from '@/store/gameStore';
 import type { GameManager } from '@/game/core/GameManager';
 
@@ -77,6 +78,9 @@ export const GameContainer: React.FC = () => {
 
           {/* Pause Modal */}
           <PauseModal onResume={togglePause} onReset={handleReset} />
+
+          {/* Summit Victory Modal */}
+          <VictoryModal onRestart={handleReset} />
         </div>
 
         {/* Right Desktop Ad Unit */}

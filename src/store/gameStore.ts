@@ -4,8 +4,10 @@ import { GameHUDState } from '@/types/game';
 interface GameStore extends GameHUDState {
   isMuted: boolean;
   isPaused: boolean;
+  isVictory: boolean;
   toggleMute: () => void;
   togglePause: () => void;
+  triggerVictory: () => void;
   updateHUD: (update: Partial<GameHUDState>) => void;
   incrementJump: () => void;
   incrementFall: () => void;
@@ -31,6 +33,7 @@ export const useGameStore = create<GameStore>((set) => ({
   fallsCount: 0,
   isMuted: getInitialMuteState(),
   isPaused: false,
+  isVictory: false,
 
   toggleMute: () =>
     set((state) => {
@@ -43,6 +46,7 @@ export const useGameStore = create<GameStore>((set) => ({
       return { isMuted: nextMuted };
     }),
   togglePause: () => set((state) => ({ isPaused: !state.isPaused })),
+  triggerVictory: () => set({ isVictory: true }),
   updateHUD: (update) => set((state) => ({ ...state, ...update })),
   incrementJump: () => set((state) => ({ jumpCount: state.jumpCount + 1 })),
   incrementFall: () => set((state) => ({ fallsCount: state.fallsCount + 1 })),
@@ -55,5 +59,6 @@ export const useGameStore = create<GameStore>((set) => ({
       jumpCount: 0,
       fallsCount: 0,
       isPaused: false,
+      isVictory: false,
     }),
 }));

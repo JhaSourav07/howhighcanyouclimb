@@ -10,6 +10,8 @@ interface GameCanvasProps {
 export const GameCanvas: React.FC<GameCanvasProps> = ({ onManagerReady }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const managerRef = useRef<GameManager | null>(null);
+  const readyCallbackRef = useRef(onManagerReady);
+  readyCallbackRef.current = onManagerReady;
 
   useEffect(() => {
     if (!containerRef.current || managerRef.current) return;
@@ -18,13 +20,13 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({ onManagerReady }) => {
     manager.init(containerRef.current);
     managerRef.current = manager;
 
-    onManagerReady?.(manager);
+    readyCallbackRef.current?.(manager);
 
     return () => {
       manager.destroy();
       managerRef.current = null;
     };
-  }, [onManagerReady]);
+  }, []); // Run strictly once on mount!
 
   return (
     <div

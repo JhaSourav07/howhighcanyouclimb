@@ -49,6 +49,8 @@ export const GameContainer: React.FC = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
         togglePause();
+      } else if (e.code === 'KeyR' && !e.repeat) {
+        handleReset();
       }
     };
     window.addEventListener('keydown', handleKeyDown);

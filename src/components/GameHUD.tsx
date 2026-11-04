@@ -37,16 +37,16 @@ export const GameHUD: React.FC<GameHUDProps> = ({ onReset }) => {
           <button
             type="button"
             onClick={toggleMute}
-            className="p-1.5 rounded bg-black/60 border border-neutral-800 text-neutral-400 hover:text-white transition-colors"
-            aria-label={isMuted ? 'Unmute' : 'Mute'}
+            className="p-1.5 rounded bg-black/60 border border-neutral-800 text-neutral-400 hover:text-white focus-visible:ring-2 focus-visible:ring-amber-400 outline-none transition-colors"
+            aria-label={isMuted ? 'Unmute Audio' : 'Mute Audio'}
           >
             {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
           </button>
           <button
             type="button"
             onClick={onReset}
-            className="p-1.5 rounded bg-black/60 border border-neutral-800 text-neutral-400 hover:text-amber-400 transition-colors"
-            aria-label="Restart"
+            className="p-1.5 rounded bg-black/60 border border-neutral-800 text-neutral-400 hover:text-amber-400 focus-visible:ring-2 focus-visible:ring-amber-400 outline-none transition-colors"
+            aria-label="Restart Run (Press R)"
           >
             <RotateCcw size={16} />
           </button>

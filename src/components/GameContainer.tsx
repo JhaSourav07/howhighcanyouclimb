@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic';
 import { GameHUD } from './GameHUD';
 import { MobileControls } from './MobileControls';
 import { DesktopAdSlot } from './DesktopAdSlot';
+import { PauseModal } from './PauseModal';
+import { useGameStore } from '@/store/gameStore';
 import type { GameManager } from '@/game/core/GameManager';
 
 const GameCanvas = dynamic(
@@ -40,6 +42,18 @@ export const GameContainer: React.FC = () => {
     }
   };
 
+  const { isPaused, togglePause } = useGameStore();
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === 'Escape') {
+        togglePause();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [togglePause]);
+
   return (
     <main className="fixed inset-0 w-screen h-screen bg-[#080808] flex items-center justify-center p-0 md:p-4 overflow-hidden select-none">
       <div className="relative w-full h-full max-w-7xl flex items-center justify-center gap-6">
@@ -60,6 +74,9 @@ export const GameContainer: React.FC = () => {
               <MobileControls onInput={handleVirtualInput} />
             </div>
           )}
+
+          {/* Pause Modal */}
+          <PauseModal onResume={togglePause} onReset={handleReset} />
         </div>
 
         {/* Right Desktop Ad Unit */}

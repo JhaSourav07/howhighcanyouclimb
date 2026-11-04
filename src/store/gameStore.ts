@@ -1,7 +1,19 @@
 import { create } from 'zustand';
 import { GameHUDState } from '@/types/game';
+import { JumpResult } from '@/game/physics/JumpController';
 
-interface GameStore extends GameHUDState {
+export interface TutorialState {
+  isTutorialActive: boolean;
+  tutorialStep: number; // 0: move, 1: tap jump, 2: charged jump, 3: directional/bounce, 4: complete
+  hasMovedLeft: boolean;
+  hasMovedRight: boolean;
+  hasTappedJump: boolean;
+  hasChargedJump: boolean;
+  hasDiagonalJump: boolean;
+  hasBumpedWall: boolean;
+}
+
+interface GameStore extends GameHUDState, TutorialState {
   isMuted: boolean;
   isPaused: boolean;
   isVictory: boolean;
@@ -12,6 +24,15 @@ interface GameStore extends GameHUDState {
   incrementJump: () => void;
   incrementFall: () => void;
   resetGame: () => void;
+
+  // Tutorial Actions
+  startTutorial: () => void;
+  skipTutorial: () => void;
+  completeTutorial: () => void;
+  nextTutorialStep: () => void;
+  reportMoveEvent: (left: boolean, right: boolean) => void;
+  reportJumpEvent: (jump: JumpResult) => void;
+  reportBumpEvent: () => void;
 }
 
 const getInitialMuteState = (): boolean => {
@@ -23,7 +44,16 @@ const getInitialMuteState = (): boolean => {
   }
 };
 
-export const useGameStore = create<GameStore>((set) => ({
+const getInitialTutorialState = (): boolean => {
+  if (typeof window === 'undefined') return true;
+  try {
+    return localStorage.getItem('jump_king_tutorial_done') !== 'true';
+  } catch {
+    return true;
+  }
+};
+
+export const useGameStore = create<GameStore>((set, get) => ({
   screenIndex: 0,
   totalScreens: 42,
   jumpChargePercent: 0,
@@ -34,6 +64,16 @@ export const useGameStore = create<GameStore>((set) => ({
   isMuted: getInitialMuteState(),
   isPaused: false,
   isVictory: false,
+
+  // Tutorial initial state
+  isTutorialActive: getInitialTutorialState(),
+  tutorialStep: 0,
+  hasMovedLeft: false,
+  hasMovedRight: false,
+  hasTappedJump: false,
+  hasChargedJump: false,
+  hasDiagonalJump: false,
+  hasBumpedWall: false,
 
   toggleMute: () =>
     set((state) => {
@@ -61,4 +101,83 @@ export const useGameStore = create<GameStore>((set) => ({
       isPaused: false,
       isVictory: false,
     }),
+
+  // Tutorial handlers
+  startTutorial: () =>
+    set({
+      isTutorialActive: true,
+      tutorialStep: 0,
+      hasMovedLeft: false,
+      hasMovedRight: false,
+      hasTappedJump: false,
+      hasChargedJump: false,
+      hasDiagonalJump: false,
+      hasBumpedWall: false,
+    }),
+  skipTutorial: () => {
+    try {
+      localStorage.setItem('jump_king_tutorial_done', 'true');
+    } catch {}
+    set({ isTutorialActive: false });
+  },
+  completeTutorial: () => {
+    try {
+      localStorage.setItem('jump_king_tutorial_done', 'true');
+    } catch {}
+    set({ isTutorialActive: false });
+  },
+  nextTutorialStep: () =>
+    set((state) => ({ tutorialStep: Math.min(4, state.tutorialStep + 1) })),
+
+  reportMoveEvent: (left: boolean, right: boolean) => {
+    const state = get();
+    if (!state.isTutorialActive || state.tutorialStep !== 0) return;
+
+    let updatedLeft = state.hasMovedLeft || left;
+    let updatedRight = state.hasMovedRight || right;
+
+    if (updatedLeft && updatedRight) {
+      set({
+        hasMovedLeft: true,
+        hasMovedRight: true,
+        tutorialStep: 1, // Advance to tap jump
+      });
+    } else {
+      set({
+        hasMovedLeft: updatedLeft,
+        hasMovedRight: updatedRight,
+      });
+    }
+  },
+
+  reportJumpEvent: (jump: JumpResult) => {
+    const state = get();
+    if (!state.isTutorialActive) return;
+
+    if (state.tutorialStep === 1) {
+      // Step 1: Tap jump (low charge)
+      if (jump.chargePercent < 35) {
+        set({ hasTappedJump: true, tutorialStep: 2 });
+      }
+    } else if (state.tutorialStep === 2) {
+      // Step 2: Charged jump (high charge)
+      if (jump.chargePercent >= 45) {
+        set({ hasChargedJump: true, tutorialStep: 3 });
+      }
+    } else if (state.tutorialStep === 3) {
+      // Step 3: Directional jump or wall bounce
+      if (jump.direction !== 'straight') {
+        set({ hasDiagonalJump: true, tutorialStep: 4 });
+      }
+    }
+  },
+
+  reportBumpEvent: () => {
+    const state = get();
+    if (!state.isTutorialActive) return;
+
+    if (state.tutorialStep === 3) {
+      set({ hasBumpedWall: true, tutorialStep: 4 });
+    }
+  },
 }));

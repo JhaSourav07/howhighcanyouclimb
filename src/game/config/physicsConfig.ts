@@ -31,6 +31,9 @@ export const PHYSICS_CONFIG = {
   CEILING_DAMPING: 0.50,         // Vy = -0.50 * Vy upon ceiling bump
   HIGH_FALL_SPLAT_THRESHOLD: 450, // Vy threshold to trigger splat/stun
 
+  // Debug visual hitboxes toggle (default false for authentic pixel art)
+  DEBUG_DRAW_HITBOXES: false,
+
   // Player physical dimensions
   PLAYER_BODY: {
     WIDTH: 24,  // Inner collision width (centered in 32px sprite)

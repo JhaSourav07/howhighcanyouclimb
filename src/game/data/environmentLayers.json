@@ -1,0 +1,2002 @@
+[
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 3,
+    "x": 240,
+    "y": 14040,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_2",
+      "x": 1537,
+      "y": 513,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 4,
+    "x": 240,
+    "y": 13680,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_3",
+      "x": 363,
+      "y": 1025,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 5,
+    "x": 240,
+    "y": 13320,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_4",
+      "x": 725,
+      "y": 1025,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 13,
+    "x": 240,
+    "y": 10440,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_5",
+      "x": 1087,
+      "y": 1025,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 14,
+    "x": 240,
+    "y": 10080,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_6",
+      "x": 1537,
+      "y": 1025,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 15,
+    "x": 240,
+    "y": 9720,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_7",
+      "x": 1,
+      "y": 1025,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 16,
+    "x": 240,
+    "y": 9360,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_8",
+      "x": 363,
+      "y": 1537,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 17,
+    "x": 240,
+    "y": 9000,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_9",
+      "x": 725,
+      "y": 1537,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 18,
+    "x": 240,
+    "y": 8640,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_10",
+      "x": 1087,
+      "y": 1537,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 19,
+    "x": 240,
+    "y": 8280,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_11",
+      "x": 1537,
+      "y": 1537,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 20,
+    "x": 240,
+    "y": 7920,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_12",
+      "x": 1,
+      "y": 1537,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 21,
+    "x": 240,
+    "y": 7560,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_13",
+      "x": 363,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 22,
+    "x": 240,
+    "y": 7200,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_14",
+      "x": 725,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 23,
+    "x": 240,
+    "y": 6840,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_15",
+      "x": 1087,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 24,
+    "x": 240,
+    "y": 6480,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_16",
+      "x": 1537,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 25,
+    "x": 240,
+    "y": 6120,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_18",
+      "x": 363,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 26,
+    "x": 240,
+    "y": 5760,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_19",
+      "x": 725,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 27,
+    "x": 240,
+    "y": 5400,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_21",
+      "x": 1537,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 28,
+    "x": 240,
+    "y": 5040,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_22",
+      "x": 1,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 29,
+    "x": 240,
+    "y": 4680,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_23",
+      "x": 363,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 31,
+    "x": 240,
+    "y": 3960,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_25",
+      "x": 1087,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 30,
+    "x": 240,
+    "y": 4320,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_24",
+      "x": 725,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 35,
+    "x": 240,
+    "y": 2520,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_26",
+      "x": 1537,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 36,
+    "x": 240,
+    "y": 2160,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_27",
+      "x": 1,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 37,
+    "x": 240,
+    "y": 1800,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_28",
+      "x": 363,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 38,
+    "x": 240,
+    "y": 1440,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_29",
+      "x": 725,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 39,
+    "x": 240,
+    "y": 1080,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_30",
+      "x": 1087,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 40,
+    "x": 240,
+    "y": 720,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_30",
+      "x": 1087,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 42,
+    "x": 240,
+    "y": 0,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_31",
+      "x": 1537,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "sky",
+    "depth": 0,
+    "screenIndex": 41,
+    "x": 240,
+    "y": 360,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "sky_sheet1",
+    "sheetFile": "/assets/images/sky-sheet1.png",
+    "frame": {
+      "name": "sky_30",
+      "x": 1087,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 0,
+    "x": 240,
+    "y": 15120,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_0",
+      "x": 1449,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 1,
+    "x": 240,
+    "y": 14760,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_1",
+      "x": 1087,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 3,
+    "x": 240,
+    "y": 14040,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_3",
+      "x": 363,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 4,
+    "x": 240,
+    "y": 13680,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_4",
+      "x": 1,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 5,
+    "x": 240,
+    "y": 13320,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_5",
+      "x": 3621,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 6,
+    "x": 240,
+    "y": 12960,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_6",
+      "x": 3259,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 7,
+    "x": 240,
+    "y": 12600,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_7",
+      "x": 2897,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 8,
+    "x": 240,
+    "y": 12240,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_8",
+      "x": 2535,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 9,
+    "x": 240,
+    "y": 11880,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_9",
+      "x": 2173,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 10,
+    "x": 240,
+    "y": 11520,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_10",
+      "x": 1811,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 11,
+    "x": 240,
+    "y": 11160,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_11",
+      "x": 1449,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 12,
+    "x": 240,
+    "y": 10800,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_12",
+      "x": 1087,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 13,
+    "x": 240,
+    "y": 10440,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_13",
+      "x": 725,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 14,
+    "x": 240,
+    "y": 10080,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_14",
+      "x": 363,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 15,
+    "x": 240,
+    "y": 9720,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_15",
+      "x": 1,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 16,
+    "x": 240,
+    "y": 9360,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_16",
+      "x": 3621,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 17,
+    "x": 240,
+    "y": 9000,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_17",
+      "x": 3259,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 18,
+    "x": 240,
+    "y": 8640,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_18",
+      "x": 2897,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 19,
+    "x": 240,
+    "y": 8280,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_19",
+      "x": 2535,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 20,
+    "x": 240,
+    "y": 7920,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_20",
+      "x": 2173,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 21,
+    "x": 240,
+    "y": 7560,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_21",
+      "x": 1811,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 22,
+    "x": 240,
+    "y": 7200,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_22",
+      "x": 1449,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 23,
+    "x": 240,
+    "y": 6840,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_23",
+      "x": 1087,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 24,
+    "x": 240,
+    "y": 6480,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_24",
+      "x": 725,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 25,
+    "x": 240,
+    "y": 6120,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_25",
+      "x": 363,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 26,
+    "x": 240,
+    "y": 5760,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_26",
+      "x": 1,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 27,
+    "x": 240,
+    "y": 5400,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_27",
+      "x": 3621,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 28,
+    "x": 240,
+    "y": 5040,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_28",
+      "x": 3259,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 29,
+    "x": 240,
+    "y": 4680,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_29",
+      "x": 2897,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 30,
+    "x": 240,
+    "y": 4320,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_30",
+      "x": 2535,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 31,
+    "x": 240,
+    "y": 3960,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_31",
+      "x": 2173,
+      "y": 2561,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 32,
+    "x": 240,
+    "y": 3600,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_32",
+      "x": 1811,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 33,
+    "x": 240,
+    "y": 3240,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_33",
+      "x": 1449,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 34,
+    "x": 240,
+    "y": 2880,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_34",
+      "x": 1087,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 35,
+    "x": 240,
+    "y": 2520,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_35",
+      "x": 725,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 36,
+    "x": 240,
+    "y": 2160,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_36",
+      "x": 363,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 37,
+    "x": 240,
+    "y": 1800,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_37",
+      "x": 1,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 38,
+    "x": 240,
+    "y": 1440,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_38",
+      "x": 3621,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 39,
+    "x": 240,
+    "y": 1080,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_39",
+      "x": 3259,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 40,
+    "x": 240,
+    "y": 720,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_40",
+      "x": 2897,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 2,
+    "x": 240,
+    "y": 14400,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_2",
+      "x": 725,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 41,
+    "x": 240,
+    "y": 360,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_41",
+      "x": 2535,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "midground",
+    "depth": 1,
+    "screenIndex": 42,
+    "x": 240,
+    "y": 0,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "midground_sheet1",
+    "sheetFile": "/assets/images/midground-sheet1.png",
+    "frame": {
+      "name": "midground_42",
+      "x": 2173,
+      "y": 2049,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 0,
+    "x": 240,
+    "y": 15120,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet3",
+    "sheetFile": "/assets/images/foreground-sheet3.png",
+    "frame": {
+      "name": "foreground_0",
+      "x": 513,
+      "y": 513,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 1,
+    "x": 240,
+    "y": 14760,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet3",
+    "sheetFile": "/assets/images/foreground-sheet3.png",
+    "frame": {
+      "name": "foreground_1",
+      "x": 1,
+      "y": 513,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 2,
+    "x": 240,
+    "y": 14400,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet3",
+    "sheetFile": "/assets/images/foreground-sheet3.png",
+    "frame": {
+      "name": "foreground_2",
+      "x": 513,
+      "y": 1,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 3,
+    "x": 240,
+    "y": 14040,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet3",
+    "sheetFile": "/assets/images/foreground-sheet3.png",
+    "frame": {
+      "name": "foreground_3",
+      "x": 1,
+      "y": 1,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 4,
+    "x": 240,
+    "y": 13680,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet2",
+    "sheetFile": "/assets/images/foreground-sheet2.png",
+    "frame": {
+      "name": "foreground_4",
+      "x": 513,
+      "y": 513,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 5,
+    "x": 240,
+    "y": 13320,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet2",
+    "sheetFile": "/assets/images/foreground-sheet2.png",
+    "frame": {
+      "name": "foreground_6",
+      "x": 513,
+      "y": 1,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 8,
+    "x": 240,
+    "y": 12240,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet2",
+    "sheetFile": "/assets/images/foreground-sheet2.png",
+    "frame": {
+      "name": "foreground_8",
+      "x": 1,
+      "y": 1,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 9,
+    "x": 240,
+    "y": 11880,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet1",
+    "sheetFile": "/assets/images/foreground-sheet1.png",
+    "frame": {
+      "name": "foreground_9",
+      "x": 513,
+      "y": 513,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 14,
+    "x": 240,
+    "y": 10080,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet1",
+    "sheetFile": "/assets/images/foreground-sheet1.png",
+    "frame": {
+      "name": "foreground_14",
+      "x": 1,
+      "y": 513,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 16,
+    "x": 240,
+    "y": 9360,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet1",
+    "sheetFile": "/assets/images/foreground-sheet1.png",
+    "frame": {
+      "name": "foreground_16",
+      "x": 513,
+      "y": 1,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 17,
+    "x": 240,
+    "y": 9000,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet1",
+    "sheetFile": "/assets/images/foreground-sheet1.png",
+    "frame": {
+      "name": "foreground_17",
+      "x": 1,
+      "y": 1,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 20,
+    "x": 240,
+    "y": 7920,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_20",
+      "x": 3621,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 21,
+    "x": 240,
+    "y": 7560,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_21",
+      "x": 3259,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 24,
+    "x": 240,
+    "y": 6480,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_24",
+      "x": 2897,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 25,
+    "x": 240,
+    "y": 6120,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_25",
+      "x": 2535,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 26,
+    "x": 240,
+    "y": 5760,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_26",
+      "x": 2173,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 27,
+    "x": 240,
+    "y": 5400,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_27",
+      "x": 1811,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 28,
+    "x": 240,
+    "y": 5040,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_28",
+      "x": 1449,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 29,
+    "x": 240,
+    "y": 4680,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_29",
+      "x": 1087,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 30,
+    "x": 240,
+    "y": 4320,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_30",
+      "x": 725,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 31,
+    "x": 240,
+    "y": 3960,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_31",
+      "x": 363,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 35,
+    "x": 240,
+    "y": 2520,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_32",
+      "x": 1,
+      "y": 3585,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 36,
+    "x": 240,
+    "y": 2160,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_33",
+      "x": 3621,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 37,
+    "x": 240,
+    "y": 1800,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_34",
+      "x": 3259,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 38,
+    "x": 240,
+    "y": 1440,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_35",
+      "x": 2897,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 39,
+    "x": 240,
+    "y": 1080,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_36",
+      "x": 2535,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  },
+  {
+    "type": "foreground",
+    "depth": 3,
+    "screenIndex": 42,
+    "x": 240,
+    "y": 0,
+    "w": 480,
+    "h": 360,
+    "originX": 0.5,
+    "originY": 1,
+    "sheetKey": "foreground_sheet0",
+    "sheetFile": "/assets/images/foreground-sheet0.png",
+    "frame": {
+      "name": "foreground_37",
+      "x": 2173,
+      "y": 3073,
+      "w": 480,
+      "h": 360
+    }
+  }
+]

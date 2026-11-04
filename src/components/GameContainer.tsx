@@ -7,6 +7,7 @@ import { MobileControls } from './MobileControls';
 import { DesktopAdSlot } from './DesktopAdSlot';
 import { PauseModal } from './PauseModal';
 import { VictoryModal } from './VictoryModal';
+import { InteractiveTutorial } from './InteractiveTutorial';
 import { useGameStore } from '@/store/gameStore';
 import type { GameManager } from '@/game/core/GameManager';
 
@@ -83,6 +84,9 @@ export const GameContainer: React.FC = () => {
 
           {/* Summit Victory Modal */}
           <VictoryModal onRestart={handleReset} />
+
+          {/* Interactive Tutorial */}
+          {isReady && <InteractiveTutorial />}
         </div>
 
         {/* Right Desktop Ad Unit */}

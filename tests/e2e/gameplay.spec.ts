@@ -107,4 +107,36 @@ test.describe('Jump King Browser Recreation E2E', () => {
 
     await expect(page.getByText(/JUMPS: 0/i)).toBeVisible();
   });
+
+  test('interactive tutorial: displays step guide and advances with player input', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'Keyboard-only test');
+    await page.goto('/');
+
+    const canvas = page.locator('canvas');
+    await expect(canvas).toBeVisible({ timeout: 10000 });
+
+    // Tutorial card is visible on start
+    await expect(page.getByText(/Interactive Tutorial/i)).toBeVisible();
+    await expect(page.getByText(/1\. Ground Movement/i)).toBeVisible();
+
+    // Walk left then walk right to complete Step 1
+    await canvas.click();
+    await page.keyboard.down('KeyA');
+    await page.waitForTimeout(200);
+    await page.keyboard.up('KeyA');
+    await page.waitForTimeout(100);
+
+    await page.keyboard.down('KeyD');
+    await page.waitForTimeout(200);
+    await page.keyboard.up('KeyD');
+    await page.waitForTimeout(100);
+
+    // Advances to Step 2: Quick Low Hop
+    await expect(page.getByText(/2\. Quick Low Hop/i)).toBeVisible();
+
+    // Skip button test
+    const skipBtn = page.getByRole('button', { name: /Skip/i });
+    await skipBtn.click();
+    await expect(page.getByText(/Interactive Tutorial/i)).toBeHidden();
+  });
 });

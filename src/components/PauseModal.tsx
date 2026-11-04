@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useGameStore } from '@/store/gameStore';
-import { Play, RotateCcw } from 'lucide-react';
+import { Play, RotateCcw, HelpCircle } from 'lucide-react';
 
 interface PauseModalProps {
   onResume: () => void;
@@ -10,7 +10,7 @@ interface PauseModalProps {
 }
 
 export const PauseModal: React.FC<PauseModalProps> = ({ onResume, onReset }) => {
-  const { isPaused } = useGameStore();
+  const { isPaused, startTutorial } = useGameStore();
 
   if (!isPaused) return null;
 
@@ -22,7 +22,7 @@ export const PauseModal: React.FC<PauseModalProps> = ({ onResume, onReset }) => 
         </h2>
 
         {/* Action Buttons */}
-        <div className="w-full flex flex-col gap-3 mb-6">
+        <div className="w-full flex flex-col gap-2.5 mb-6">
           <button
             type="button"
             onClick={onResume}
@@ -30,6 +30,18 @@ export const PauseModal: React.FC<PauseModalProps> = ({ onResume, onReset }) => 
           >
             <Play size={16} />
             <span>RESUME</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              startTutorial();
+              onResume();
+            }}
+            className="w-full py-2 px-4 bg-neutral-800 hover:bg-neutral-700 text-amber-300 font-bold rounded flex items-center justify-center gap-2 transition-transform active:scale-95 text-xs"
+          >
+            <HelpCircle size={14} />
+            <span>INTERACTIVE TUTORIAL</span>
           </button>
 
           <button

@@ -1,5 +1,6 @@
 import * as Phaser from 'phaser';
 import { PlatformData } from '@/types/game';
+import { PHYSICS_CONFIG } from '@/game/config/physicsConfig';
 
 export class Platform {
   public data: PlatformData;
@@ -8,9 +9,10 @@ export class Platform {
   constructor(scene: Phaser.Scene, data: PlatformData) {
     this.data = data;
 
-    // Distinct color palette based on surface properties
-    const color = data.isSlippery ? 0x90caf9 : 0x5d4037; // Ice blue or stone brown
-    const alpha = 0.85;
+    // In authentic gameplay, platforms are rendered by the background pixel art.
+    // Collision rectangles are invisible unless debug hitboxes are enabled.
+    const color = data.isSlippery ? 0x90caf9 : 0x5d4037;
+    const alpha = PHYSICS_CONFIG.DEBUG_DRAW_HITBOXES ? 0.6 : 0;
 
     this.gameObject = scene.add.rectangle(
       data.x,
@@ -22,6 +24,9 @@ export class Platform {
     );
     this.gameObject.setOrigin(0.5, 0.5);
     this.gameObject.setDepth(2);
+    if (!PHYSICS_CONFIG.DEBUG_DRAW_HITBOXES) {
+      this.gameObject.setVisible(false);
+    }
   }
 
   public setVisible(visible: boolean): void {

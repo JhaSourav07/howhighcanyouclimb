@@ -121,8 +121,8 @@ export class PlayerPhysics {
   }
 
   private handleGrounded(dt: number, input: InputState): void {
-    // Jump initiation
-    if (input.jumpJustPressed && !this.jumpController.getIsCharging()) {
+    // Jump initiation: start charging whenever jump is held while grounded
+    if (input.jump && !this.jumpController.getIsCharging()) {
       this.jumpController.startCharging();
       this.setState('charging');
       this.velocity.x = 0;
@@ -141,8 +141,8 @@ export class PlayerPhysics {
         this.facing = 'right';
       }
 
-      // Execute jump on release or max charge
-      if (input.jumpJustReleased || reachedMax) {
+      // Execute jump on release (!input.jump) or max charge
+      if (!input.jump || reachedMax) {
         this.executeJump(input);
       }
       return;

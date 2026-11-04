@@ -2,7 +2,7 @@ import * as Phaser from 'phaser';
 import { GAME_CONFIG } from '@/game/config/gameConfig';
 import { PHYSICS_CONFIG } from '@/game/config/physicsConfig';
 import { PLATFORMS_DATA } from '@/game/data/levels';
-import midgroundFrames from '@/game/data/midgroundFrames.json';
+import environmentLayers from '@/game/data/environmentLayers.json';
 import { CollisionSystem } from '@/game/physics/CollisionSystem';
 import { PlayerPhysics } from '@/game/physics/PlayerPhysics';
 import { Player } from '@/game/entities/Player';
@@ -23,7 +23,7 @@ export class MainGameScene extends Phaser.Scene {
   private levelManager!: LevelManager;
 
   private platforms: Platform[] = [];
-  private backgroundSprites: Phaser.GameObjects.Sprite[] = [];
+  private environmentSprites: { sprite: Phaser.GameObjects.Sprite; screenIndex: number }[] = [];
   private accumulator: number = 0;
   private prevScreenIndex: number = 0;
 
@@ -32,19 +32,24 @@ export class MainGameScene extends Phaser.Scene {
   }
 
   public preload(): void {
-    // Load player spritesheet
+    // Player spritesheet
     this.load.image('player_atlas', '/assets/images/pla-sheet0.png');
-    this.load.image('mid_sheet_0', '/assets/images/midground-sheet0.png');
-    this.load.image('mid_sheet_1', '/assets/images/midground-sheet1.png');
-    this.load.image('col_sheet', '/assets/images/col-sheet0.png');
+
+    // Multi-layer environment sheets (sky backdrop, midground castle, and foreground details)
+    this.load.image('sky_sheet1', '/assets/images/sky-sheet1.png');
+    this.load.image('midground_sheet1', '/assets/images/midground-sheet1.png');
+    this.load.image('foreground_sheet0', '/assets/images/foreground-sheet0.png');
+    this.load.image('foreground_sheet1', '/assets/images/foreground-sheet1.png');
+    this.load.image('foreground_sheet2', '/assets/images/foreground-sheet2.png');
+    this.load.image('foreground_sheet3', '/assets/images/foreground-sheet3.png');
   }
 
   public create(): void {
     // 1. Setup sprite frames from pla-sheet0.png
     this.setupPlayerTextureFrames();
 
-    // 2. Setup midground room textures
-    this.setupMidgroundTextureFrames();
+    // 2. Setup multi-layer environment textures (sky, midground, foreground)
+    this.setupEnvironmentFrames();
 
     // 3. Systems initialization
     this.collisionSystem = new CollisionSystem(PLATFORMS_DATA);
@@ -62,13 +67,15 @@ export class MainGameScene extends Phaser.Scene {
       GAME_CONFIG.PLAYER_START.Y,
       this.collisionSystem,
       {
-        onJump: () => {
+        onJump: (jumpResult) => {
           this.audioSystem.playJump();
           this.spawnDust(this.playerPhysics.position.x, this.playerPhysics.position.y + 16, 8);
           useGameStore.getState().incrementJump();
+          useGameStore.getState().reportJumpEvent(jumpResult);
         },
         onBump: () => {
           this.audioSystem.playBump();
+          useGameStore.getState().reportBumpEvent();
         },
         onLand: () => {
           this.audioSystem.playLand();
@@ -82,19 +89,19 @@ export class MainGameScene extends Phaser.Scene {
       }
     );
 
-    // 5. Render midground environment screens (depth 1)
+    // 6. Render full multi-layer environment screens (sky depth 0, midground depth 1, foreground depth 5)
     this.createEnvironmentScreens();
 
-    // 6. Create player entity (depth 10)
+    // 7. Create player entity (depth 10)
     this.player = new Player(this, this.playerPhysics);
 
-    // 7. Render collision platforms (depth 5)
+    // 8. Render collision platforms (invisible in authentic mode, depth 2)
     for (const data of PLATFORMS_DATA) {
       const plat = new Platform(this, data);
       this.platforms.push(plat);
     }
 
-    // 8. Camera setup
+    // 9. Camera setup
     this.cameras.main.setSize(GAME_CONFIG.SCREEN_WIDTH, GAME_CONFIG.SCREEN_HEIGHT);
     this.cameraSystem.update(this.playerPhysics.position, true);
     this.cameras.main.centerOn(this.cameraSystem.currentX, this.cameraSystem.currentY);
@@ -156,34 +163,29 @@ export class MainGameScene extends Phaser.Scene {
     texture.add('splat', 0, 35, 65, 32, 32);
   }
 
-  private setupMidgroundTextureFrames(): void {
-    for (const f of midgroundFrames) {
-      const textureKey = f.sheet;
-      if (this.textures.exists(textureKey)) {
-        const texture = this.textures.get(textureKey);
-        const frameKey = `room_bg_${f.frameIndex}`;
+  private setupEnvironmentFrames(): void {
+    for (const item of environmentLayers) {
+      const sheetKey = item.sheetKey;
+      if (this.textures.exists(sheetKey)) {
+        const texture = this.textures.get(sheetKey);
+        const frameKey = item.frame.name;
         if (!texture.has(frameKey)) {
-          texture.add(frameKey, 0, f.x, f.y, f.w, f.h);
+          texture.add(frameKey, 0, item.frame.x, item.frame.y, item.frame.w, item.frame.h);
         }
       }
     }
   }
 
   private createEnvironmentScreens(): void {
-    for (let k = 0; k < GAME_CONFIG.TOTAL_SCREENS; k++) {
-      const frameDef = midgroundFrames[k];
-      if (!frameDef) continue;
+    for (const item of environmentLayers) {
+      const sheetKey = item.sheetKey;
+      const frameKey = item.frame.name;
 
-      const textureKey = frameDef.sheet;
-      const frameKey = `room_bg_${k}`;
-
-      if (this.textures.exists(textureKey) && this.textures.get(textureKey).has(frameKey)) {
-        // Center of screen k: x=240, y=15120 - k * 360 - 180
-        const screenCenterY = GAME_CONFIG.LAYOUT_HEIGHT - k * GAME_CONFIG.SCREEN_HEIGHT - GAME_CONFIG.SCREEN_HEIGHT / 2;
-        const bg = this.add.sprite(GAME_CONFIG.SCREEN_WIDTH / 2, screenCenterY, textureKey, frameKey);
-        bg.setOrigin(0.5, 0.5);
-        bg.setDepth(1);
-        this.backgroundSprites.push(bg);
+      if (this.textures.exists(sheetKey) && this.textures.get(sheetKey).has(frameKey)) {
+        const sprite = this.add.sprite(item.x, item.y, sheetKey, frameKey);
+        sprite.setOrigin(item.originX, item.originY);
+        sprite.setDepth(item.depth);
+        this.environmentSprites.push({ sprite, screenIndex: item.screenIndex });
       }
     }
   }
@@ -195,6 +197,11 @@ export class MainGameScene extends Phaser.Scene {
     this.accumulator += Math.min(dt, 0.1);
 
     const input = this.inputSystem.poll();
+
+    // Report directional movement to interactive tutorial
+    if (input.left || input.right) {
+      useGameStore.getState().reportMoveEvent(input.left, input.right);
+    }
 
     // Fixed timestep loop for 100% deterministic physics
     while (this.accumulator >= PHYSICS_CONFIG.FIXED_TIMESTEP) {
@@ -226,10 +233,10 @@ export class MainGameScene extends Phaser.Scene {
   }
 
   private cullOffscreenObjects(currentScreen: number): void {
-    // Only render background slices and platforms within +-1 screen of active room
-    for (let k = 0; k < this.backgroundSprites.length; k++) {
-      const isVisible = Math.abs(k - currentScreen) <= 1;
-      this.backgroundSprites[k].setVisible(isVisible);
+    // Only render environment slices and platforms within +-1 screen of active room
+    for (const item of this.environmentSprites) {
+      const isVisible = Math.abs(item.screenIndex - currentScreen) <= 1;
+      item.sprite.setVisible(isVisible);
     }
 
     for (const plat of this.platforms) {
@@ -269,11 +276,11 @@ export class MainGameScene extends Phaser.Scene {
 
   public destroyScene(): void {
     this.inputSystem?.detach();
-    if (this.backgroundSprites) {
-      for (const bg of this.backgroundSprites) {
-        bg?.destroy();
+    if (this.environmentSprites) {
+      for (const item of this.environmentSprites) {
+        item.sprite?.destroy();
       }
-      this.backgroundSprites = [];
+      this.environmentSprites = [];
     }
     if (this.platforms) {
       for (const p of this.platforms) {

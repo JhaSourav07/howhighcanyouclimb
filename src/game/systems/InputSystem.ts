@@ -11,6 +11,11 @@ export class InputSystem {
 
   private prevJump: boolean = false;
 
+  // Latch fast sub-frame taps so inputs are never dropped
+  private latchedLeft: boolean = false;
+  private latchedRight: boolean = false;
+  private latchedJump: boolean = false;
+
   // External virtual button triggers (mobile overlay)
   private virtualLeft: boolean = false;
   private virtualRight: boolean = false;
@@ -38,30 +43,38 @@ export class InputSystem {
   }
 
   private handleKeyDown(e: KeyboardEvent): void {
-    // Prevent default scroll on Space and Arrows
+    // Prevent default browser scroll / page down on Space and Arrows
     if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
       e.preventDefault();
     }
 
     if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
       this.state.left = true;
+      this.latchedLeft = true;
     }
     if (e.code === 'ArrowRight' || e.code === 'KeyD') {
       this.state.right = true;
+      this.latchedRight = true;
     }
-    if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'KeyW') {
+    // Only Space triggers Jump (ArrowUp and KeyW excluded to prevent accidental jumps)
+    if (e.code === 'Space') {
       this.state.jump = true;
+      this.latchedJump = true;
     }
   }
 
   private handleKeyUp(e: KeyboardEvent): void {
+    if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+      e.preventDefault();
+    }
+
     if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
       this.state.left = false;
     }
     if (e.code === 'ArrowRight' || e.code === 'KeyD') {
       this.state.right = false;
     }
-    if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'KeyW') {
+    if (e.code === 'Space') {
       this.state.jump = false;
     }
   }
@@ -73,7 +86,13 @@ export class InputSystem {
   }
 
   public poll(): InputState {
-    const isJumpActive = this.state.jump || this.virtualJump;
+    const isJumpActive = this.state.jump || this.latchedJump || this.virtualJump;
+    const isLeftActive = this.state.left || this.latchedLeft || this.virtualLeft;
+    const isRightActive = this.state.right || this.latchedRight || this.virtualRight;
+
+    this.latchedLeft = false;
+    this.latchedRight = false;
+    this.latchedJump = false;
 
     const justPressed = isJumpActive && !this.prevJump;
     const justReleased = !isJumpActive && this.prevJump;
@@ -81,8 +100,8 @@ export class InputSystem {
     this.prevJump = isJumpActive;
 
     return {
-      left: this.state.left || this.virtualLeft,
-      right: this.state.right || this.virtualRight,
+      left: isLeftActive,
+      right: isRightActive,
       jump: isJumpActive,
       jumpJustPressed: justPressed,
       jumpJustReleased: justReleased,

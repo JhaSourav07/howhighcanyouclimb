@@ -53,7 +53,10 @@ export class MainGameScene extends Phaser.Scene {
     this.cameraSystem = new CameraSystem();
     this.levelManager = new LevelManager();
 
-    // 4. Audio & Physics callbacks
+    // 4. Create particle textures
+    this.createParticleTextures();
+
+    // 5. Audio & Physics callbacks
     this.playerPhysics = new PlayerPhysics(
       GAME_CONFIG.PLAYER_START.X,
       GAME_CONFIG.PLAYER_START.Y,
@@ -61,6 +64,7 @@ export class MainGameScene extends Phaser.Scene {
       {
         onJump: () => {
           this.audioSystem.playJump();
+          this.spawnDust(this.playerPhysics.position.x, this.playerPhysics.position.y + 16, 8);
           useGameStore.getState().incrementJump();
         },
         onBump: () => {
@@ -68,9 +72,11 @@ export class MainGameScene extends Phaser.Scene {
         },
         onLand: () => {
           this.audioSystem.playLand();
+          this.spawnDust(this.playerPhysics.position.x, this.playerPhysics.position.y + 16, 6);
         },
         onSplat: () => {
           this.audioSystem.playSplat();
+          this.spawnDust(this.playerPhysics.position.x, this.playerPhysics.position.y + 16, 14);
           useGameStore.getState().incrementFall();
         },
       }
@@ -97,7 +103,43 @@ export class MainGameScene extends Phaser.Scene {
     this.updateHUD();
   }
 
-  private setupPlayerTextureFrames(): void {
+  private createParticleTextures(): void {
+    if (!this.textures.exists('dust_particle')) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 3;
+      canvas.height = 3;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.fillStyle = '#d7ccc8';
+        ctx.fillRect(0, 0, 3, 3);
+      }
+      this.textures.addCanvas('dust_particle', canvas);
+    }
+  }
+
+  private spawnDust(x: number, y: number, count: number): void {
+    for (let i = 0; i < count; i++) {
+      const p = this.add.sprite(x + (Math.random() * 16 - 8), y, 'dust_particle');
+      p.setDepth(15);
+      const angle = Math.random() * Math.PI - Math.PI; // Upwards spread
+      const speed = 20 + Math.random() * 40;
+      const vx = Math.cos(angle) * speed;
+      const vy = Math.sin(angle) * speed;
+
+      this.tweens.add({
+        targets: p,
+        x: p.x + vx * 0.3,
+        y: p.y + vy * 0.3,
+        alpha: 0,
+        scale: 0.2,
+        duration: 250 + Math.random() * 150,
+        ease: 'Cubic.easeOut',
+        onComplete: () => {
+          p.destroy();
+        },
+      });
+    }
+  }
     if (!this.textures.exists('player_atlas')) return;
     const texture = this.textures.get('player_atlas');
 
@@ -204,13 +246,19 @@ export class MainGameScene extends Phaser.Scene {
   }
 
   public destroyScene(): void {
-    this.inputSystem.detach();
-    for (const bg of this.backgroundSprites) {
-      bg.destroy();
+    this.inputSystem?.detach();
+    if (this.backgroundSprites) {
+      for (const bg of this.backgroundSprites) {
+        bg?.destroy();
+      }
+      this.backgroundSprites = [];
     }
-    for (const p of this.platforms) {
-      p.destroy();
+    if (this.platforms) {
+      for (const p of this.platforms) {
+        p?.destroy();
+      }
+      this.platforms = [];
     }
-    this.player.destroy();
+    this.player?.destroy();
   }
 }

@@ -141,6 +141,8 @@ export class MainGameScene extends Phaser.Scene {
       });
     }
   }
+
+  private setupPlayerTextureFrames(): void {
     if (!this.textures.exists('player_atlas')) return;
     const texture = this.textures.get('player_atlas');
 

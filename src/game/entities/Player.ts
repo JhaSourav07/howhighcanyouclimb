@@ -13,8 +13,8 @@ export class Player {
     this.scene = scene;
     this.physics = physics;
 
-    // Create player sprite
-    this.sprite = scene.add.sprite(physics.position.x, physics.position.y, 'player');
+    // Create player sprite using loaded player_atlas
+    this.sprite = scene.add.sprite(physics.position.x, physics.position.y, 'player_atlas', 'idle');
     this.sprite.setOrigin(0.5, 0.5);
     this.sprite.setDepth(10);
   }

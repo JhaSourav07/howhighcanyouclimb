@@ -26,22 +26,22 @@ export const GameContainer: React.FC = () => {
   const managerRef = useRef<GameManager | null>(null);
   const [isReady, setIsReady] = useState(false);
 
-  const handleManagerReady = (manager: GameManager) => {
+  const handleManagerReady = React.useCallback((manager: GameManager) => {
     managerRef.current = manager;
     setIsReady(true);
-  };
+  }, []);
 
-  const handleVirtualInput = (left: boolean, right: boolean, jump: boolean) => {
+  const handleVirtualInput = React.useCallback((left: boolean, right: boolean, jump: boolean) => {
     if (managerRef.current) {
       managerRef.current.setVirtualInput(left, right, jump);
     }
-  };
+  }, []);
 
-  const handleReset = () => {
+  const handleReset = React.useCallback(() => {
     if (managerRef.current) {
       managerRef.current.resetGame();
     }
-  };
+  }, []);
 
   const { isPaused, togglePause } = useGameStore();
 

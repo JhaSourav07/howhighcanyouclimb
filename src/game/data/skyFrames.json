@@ -1,0 +1,1186 @@
+[
+  {
+    "frameIndex": 0,
+    "sheet": "sky_sheet_1",
+    "x": 1,
+    "y": 3841,
+    "w": 250,
+    "h": 250
+  },
+  {
+    "frameIndex": 1,
+    "sheet": "sky_sheet_1",
+    "x": 1,
+    "y": 3841,
+    "w": 250,
+    "h": 250
+  },
+  {
+    "frameIndex": 2,
+    "sheet": "sky_sheet_1",
+    "x": 1537,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 3,
+    "sheet": "sky_sheet_1",
+    "x": 363,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 4,
+    "sheet": "sky_sheet_1",
+    "x": 725,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 5,
+    "sheet": "sky_sheet_1",
+    "x": 1087,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 6,
+    "sheet": "sky_sheet_1",
+    "x": 1537,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 7,
+    "sheet": "sky_sheet_1",
+    "x": 1,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 8,
+    "sheet": "sky_sheet_1",
+    "x": 363,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 9,
+    "sheet": "sky_sheet_1",
+    "x": 725,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 10,
+    "sheet": "sky_sheet_1",
+    "x": 1087,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 11,
+    "sheet": "sky_sheet_1",
+    "x": 1537,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 12,
+    "sheet": "sky_sheet_1",
+    "x": 1,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 13,
+    "sheet": "sky_sheet_1",
+    "x": 363,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 14,
+    "sheet": "sky_sheet_1",
+    "x": 725,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 15,
+    "sheet": "sky_sheet_1",
+    "x": 1087,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 16,
+    "sheet": "sky_sheet_1",
+    "x": 1537,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 17,
+    "sheet": "sky_sheet_1",
+    "x": 1,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 18,
+    "sheet": "sky_sheet_1",
+    "x": 363,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 19,
+    "sheet": "sky_sheet_1",
+    "x": 725,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 20,
+    "sheet": "sky_sheet_1",
+    "x": 1087,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 21,
+    "sheet": "sky_sheet_1",
+    "x": 1537,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 22,
+    "sheet": "sky_sheet_1",
+    "x": 1,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 23,
+    "sheet": "sky_sheet_1",
+    "x": 363,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 24,
+    "sheet": "sky_sheet_1",
+    "x": 725,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 25,
+    "sheet": "sky_sheet_1",
+    "x": 1087,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 26,
+    "sheet": "sky_sheet_1",
+    "x": 1537,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 27,
+    "sheet": "sky_sheet_1",
+    "x": 1,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 28,
+    "sheet": "sky_sheet_1",
+    "x": 363,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 29,
+    "sheet": "sky_sheet_1",
+    "x": 725,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 30,
+    "sheet": "sky_sheet_1",
+    "x": 1087,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 31,
+    "sheet": "sky_sheet_1",
+    "x": 1537,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 32,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 33,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 34,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 35,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 36,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 37,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 38,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 39,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 40,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 41,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 42,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 43,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 3585,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 44,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 45,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 46,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 47,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 48,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 49,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 50,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 51,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 52,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 53,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 54,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 55,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 3073,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 56,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 57,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 58,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 59,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 60,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 61,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 62,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 63,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 64,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 65,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 66,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 67,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 68,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 69,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 70,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 2561,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 71,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 72,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 73,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 74,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 75,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 76,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 77,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 78,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 79,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 80,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 81,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 82,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 83,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 84,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 2049,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 85,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 86,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 87,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 88,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 89,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 90,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 91,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 92,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 93,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 94,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 95,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 96,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 97,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 98,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 99,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 1537,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 100,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 101,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 102,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 103,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 104,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 105,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 106,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 107,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 108,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 109,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 110,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 111,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 112,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 113,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 114,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 115,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 116,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 117,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 118,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 1025,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 119,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 120,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 121,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 122,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 123,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 124,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 125,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 126,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 127,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 128,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 129,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 130,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 131,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 513,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 132,
+    "sheet": "sky_sheet_0",
+    "x": 3621,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 133,
+    "sheet": "sky_sheet_0",
+    "x": 3259,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 134,
+    "sheet": "sky_sheet_0",
+    "x": 2897,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 135,
+    "sheet": "sky_sheet_0",
+    "x": 2535,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 136,
+    "sheet": "sky_sheet_0",
+    "x": 2173,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 137,
+    "sheet": "sky_sheet_0",
+    "x": 1811,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 138,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 139,
+    "sheet": "sky_sheet_0",
+    "x": 1087,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 140,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 141,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 142,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 143,
+    "sheet": "sky_sheet_0",
+    "x": 725,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 144,
+    "sheet": "sky_sheet_0",
+    "x": 363,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 145,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 146,
+    "sheet": "sky_sheet_0",
+    "x": 1449,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  },
+  {
+    "frameIndex": 147,
+    "sheet": "sky_sheet_0",
+    "x": 1,
+    "y": 1,
+    "w": 480,
+    "h": 360
+  }
+]

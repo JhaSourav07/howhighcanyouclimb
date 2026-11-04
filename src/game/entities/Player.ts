@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 import { PlayerPhysics } from '@/game/physics/PlayerPhysics';
 import { PlayerState } from '@/types/game';
 

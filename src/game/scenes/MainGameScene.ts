@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 import { GAME_CONFIG } from '@/game/config/gameConfig';
 import { PHYSICS_CONFIG } from '@/game/config/physicsConfig';
 import { PLATFORMS_DATA } from '@/game/data/levels';

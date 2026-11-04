@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import * as Phaser from 'phaser';
 import { PlatformData } from '@/types/game';
 
 export class Platform {

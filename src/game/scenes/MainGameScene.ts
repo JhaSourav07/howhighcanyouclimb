@@ -103,6 +103,7 @@ export class MainGameScene extends Phaser.Scene {
 
     // 9. Camera setup
     this.cameras.main.setSize(GAME_CONFIG.SCREEN_WIDTH, GAME_CONFIG.SCREEN_HEIGHT);
+    this.cameras.main.setBackgroundColor('#5e5e5e');
     this.cameraSystem.update(this.playerPhysics.position, true);
     this.cameras.main.centerOn(this.cameraSystem.currentX, this.cameraSystem.currentY);
 

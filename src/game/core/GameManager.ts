@@ -15,7 +15,7 @@ export class GameManager {
       width: GAME_CONFIG.SCREEN_WIDTH,
       height: GAME_CONFIG.SCREEN_HEIGHT,
       pixelArt: true, // Nearest-neighbor filtering
-      backgroundColor: '#000000',
+      backgroundColor: '#5e5e5e', // Atmospheric grey layout background matching Construct 3 [94, 94, 94]
       scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,

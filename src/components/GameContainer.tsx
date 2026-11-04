@@ -65,7 +65,7 @@ export const GameContainer: React.FC = () => {
         <DesktopAdSlot position="left" />
 
         {/* 9:16 Portrait Playable Area */}
-        <div className="relative w-full h-full max-h-[100dvh] aspect-[9/16] bg-black shadow-2xl border-0 md:border md:border-neutral-800 rounded-none md:rounded-lg overflow-hidden flex flex-col items-center justify-center">
+        <div className="relative h-full max-h-[100dvh] aspect-[9/16] w-auto max-w-[calc(100dvh*9/16)] bg-[#111111] shadow-2xl border-0 md:border md:border-neutral-800 rounded-none md:rounded-lg overflow-hidden flex flex-col items-center justify-center">
           {/* Phaser Canvas (SSR disabled) */}
           <GameCanvas onManagerReady={handleManagerReady} />
 

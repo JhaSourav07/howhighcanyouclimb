@@ -99,7 +99,8 @@ export class MainGameScene extends Phaser.Scene {
     this.cameraSystem.update(this.playerPhysics.position, true);
     this.cameras.main.centerOn(this.cameraSystem.currentX, this.cameraSystem.currentY);
 
-    // Initial HUD update
+    // Initial HUD update & offscreen culling
+    this.cullOffscreenObjects(0);
     this.updateHUD();
   }
 
@@ -206,10 +207,11 @@ export class MainGameScene extends Phaser.Scene {
     this.cameraSystem.update(this.playerPhysics.position);
     this.cameras.main.centerOn(this.cameraSystem.currentX, this.cameraSystem.currentY);
 
-    // Detect screen transition
+    // Detect screen transition & optimize offscreen visibility
     const curScreen = this.cameraSystem.getScreenIndex();
     if (curScreen !== this.prevScreenIndex) {
       this.prevScreenIndex = curScreen;
+      this.cullOffscreenObjects(curScreen);
     }
 
     // Check for summit victory
@@ -219,6 +221,19 @@ export class MainGameScene extends Phaser.Scene {
 
     // Synchronize HUD state with React store
     this.updateHUD();
+  }
+
+  private cullOffscreenObjects(currentScreen: number): void {
+    // Only render background slices and platforms within +-1 screen of active room
+    for (let k = 0; k < this.backgroundSprites.length; k++) {
+      const isVisible = Math.abs(k - currentScreen) <= 1;
+      this.backgroundSprites[k].setVisible(isVisible);
+    }
+
+    for (const plat of this.platforms) {
+      const isVisible = Math.abs(plat.data.screenIndex - currentScreen) <= 1;
+      plat.setVisible(isVisible);
+    }
   }
 
   private updateHUD(): void {

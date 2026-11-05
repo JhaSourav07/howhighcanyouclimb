@@ -9,7 +9,7 @@
 
 | Asset Path | Resolution / Size | Role & Contents |
 | :--- | :--- | :--- |
-| `images/pla-sheet0.png` | $160 \times 225\text{ px}$ (8.8 KB) | Player character (`pla`) spritesheet: Idle, Walk (3 frames), Charge, Jump, Fall, Splat/Land |
+| `images/pla-sheet0.png` | $128 \times 256\text{ px}$ (8.8 KB) | Player character spritesheet: Sir Hopsalot (Frog Adventurer) with 8 states: Idle, Walk (3 frames), Charge, Jump, Fall, Splat. Original king backed up in `pla-sheet0-original.png`. |
 | `images/col-sheet0.png` | $480 \times 360\text{ px}$ (54.5 KB) | Static collision mask overlay |
 | `images/lava-sheet0.png` | $500 \times 100\text{ px}$ (3.5 KB) | Lava hazard texture slice |
 | `images/midground-sheet0.png` | $2048 \times 2048\text{ px}$ (9.6 MB) | Full-color environmental screen slices 0–19 |

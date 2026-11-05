@@ -3513,7 +3513,15 @@ export function getPlatformsForBiome(biomeId: BiomeId): PlatformData[] {
   if (biomeId === 'default') {
     return PLATFORMS_DATA;
   }
-  return [...PLATFORMS_DATA, ...EXTRA_SUMMIT_PLATFORMS];
+
+  // Shift screens 0..41 platforms by +2880px so Screen 0 is aligned with the 18,000px layout floor
+  const shiftY = 18000 - 15120; // 2880px
+  const shiftedPlatforms = PLATFORMS_DATA.map((p) => ({
+    ...p,
+    y: Math.round((p.y + shiftY) * 100) / 100,
+  }));
+
+  return [...shiftedPlatforms, ...EXTRA_SUMMIT_PLATFORMS];
 }
 
 export function getScreensForBiome(biomeId: BiomeId): ScreenMetadata[] {

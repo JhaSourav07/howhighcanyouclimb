@@ -101,4 +101,35 @@ describe('Multi-Biome System', () => {
     expect(updated.isTutorialActive).toBe(false);
     expect(updated.isBiomeSelectorOpen).toBe(true);
   });
+
+  it('guarantees solid ground collision and support on Screen 0 for all 11 biomes', async () => {
+    const { CollisionSystem } = await import('@/game/physics/CollisionSystem');
+    const { GAME_CONFIG } = await import('@/game/config/gameConfig');
+    const { PHYSICS_CONFIG } = await import('@/game/config/physicsConfig');
+
+    const allBiomeIds = Object.keys(BIOME_CATALOG) as BiomeId[];
+
+    for (const bId of allBiomeIds) {
+      const biome = BIOME_CATALOG[bId];
+      const platforms = getPlatformsForBiome(bId);
+      const colSystem = new CollisionSystem(platforms, biome.layoutHeight);
+
+      const spawnY = biome.layoutHeight - (GAME_CONFIG.SCREEN_HEIGHT - 311.11);
+      const prevPos = { x: GAME_CONFIG.PLAYER_START.X, y: spawnY };
+      const pos = { x: GAME_CONFIG.PLAYER_START.X, y: spawnY + 2 }; // 1 step of gravity downward
+      const vel = { x: 0, y: 50 };
+
+      const res = colSystem.resolve(
+        pos,
+        vel,
+        prevPos,
+        PHYSICS_CONFIG.PLAYER_BODY.WIDTH,
+        PHYSICS_CONFIG.PLAYER_BODY.HEIGHT
+      );
+
+      expect(res.grounded).toBe(true);
+      expect(vel.y).toBe(0);
+      expect(pos.y).toBeLessThanOrEqual(spawnY + 2);
+    }
+  });
 });

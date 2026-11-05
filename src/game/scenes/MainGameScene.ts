@@ -60,11 +60,15 @@ export class MainGameScene extends Phaser.Scene {
 
     // 3. Systems initialization
     const initialBiome = useGameStore.getState().selectedBiomeId;
+    const biomeDef = BIOME_CATALOG[initialBiome] || BIOME_CATALOG.default;
+    const initialSpawnY = biomeDef.layoutHeight - (GAME_CONFIG.SCREEN_HEIGHT - 311.11);
+
     this.audioSystem = new AudioSystem();
     this.inputSystem = new InputSystem();
     this.cameraSystem = new CameraSystem();
+    this.cameraSystem.setLayoutBounds(biomeDef.layoutHeight, biomeDef.totalScreens);
     this.levelManager = new LevelManager(initialBiome);
-    this.collisionSystem = new CollisionSystem(this.levelManager.allPlatforms);
+    this.collisionSystem = new CollisionSystem(this.levelManager.allPlatforms, biomeDef.layoutHeight);
     this.biomeThemeEngine = new BiomeThemeEngine(this);
     this.biomeParticleSystem = new BiomeParticleSystem(this);
 
@@ -74,7 +78,7 @@ export class MainGameScene extends Phaser.Scene {
     // 5. Audio & Physics callbacks
     this.playerPhysics = new PlayerPhysics(
       GAME_CONFIG.PLAYER_START.X,
-      GAME_CONFIG.PLAYER_START.Y,
+      initialSpawnY,
       this.collisionSystem,
       {
         onJump: (jumpResult) => {
@@ -271,8 +275,8 @@ export class MainGameScene extends Phaser.Scene {
     // Update camera layout height & total screens
     this.cameraSystem.setLayoutBounds(biome.layoutHeight, biome.totalScreens);
 
-    // Rebuild collision system with the biome's platforms
-    this.collisionSystem = new CollisionSystem(this.levelManager.allPlatforms);
+    // Rebuild collision system with the biome's platforms and layout height
+    this.collisionSystem = new CollisionSystem(this.levelManager.allPlatforms, biome.layoutHeight);
     if (this.playerPhysics) {
       this.playerPhysics.collisionSystem = this.collisionSystem;
     }

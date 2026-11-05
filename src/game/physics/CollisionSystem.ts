@@ -14,12 +14,17 @@ export interface CollisionResult {
 export class CollisionSystem {
   private platforms: PlatformData[] = [];
   private platformsByScreen: Map<number, PlatformData[]> = new Map();
+  public layoutHeight: number = GAME_CONFIG.LAYOUT_HEIGHT;
 
-  constructor(platforms: PlatformData[]) {
-    this.setPlatforms(platforms);
+  constructor(platforms: PlatformData[], layoutHeight: number = GAME_CONFIG.LAYOUT_HEIGHT) {
+    this.layoutHeight = layoutHeight;
+    this.setPlatforms(platforms, layoutHeight);
   }
 
-  public setPlatforms(platforms: PlatformData[]): void {
+  public setPlatforms(platforms: PlatformData[], layoutHeight?: number): void {
+    if (layoutHeight !== undefined) {
+      this.layoutHeight = layoutHeight;
+    }
     this.platforms = platforms;
     this.platformsByScreen.clear();
 
@@ -34,7 +39,7 @@ export class CollisionSystem {
    * Get candidates near the player across current and adjacent vertical screens.
    */
   public getNearbyPlatforms(playerY: number): PlatformData[] {
-    const currentScreen = Math.floor((GAME_CONFIG.LAYOUT_HEIGHT - playerY) / GAME_CONFIG.SCREEN_HEIGHT);
+    const currentScreen = Math.floor((this.layoutHeight - playerY) / GAME_CONFIG.SCREEN_HEIGHT);
     const candidates: PlatformData[] = [];
 
     for (let s = currentScreen - 1; s <= currentScreen + 1; s++) {
@@ -69,9 +74,10 @@ export class CollisionSystem {
     const halfW = bodyWidth / 2;
     const halfH = bodyHeight / 2;
 
-    // 1. World boundary collision (Screen edges: X = 0 and X = 480)
+    // 1. World boundary collision (Screen edges: X = 0 and X = 480, and safety bottom floor)
     const minX = halfW;
     const maxX = GAME_CONFIG.SCREEN_WIDTH - halfW;
+    const maxWorldY = this.layoutHeight - halfH;
 
     if (pos.x <= minX) {
       pos.x = minX;
@@ -87,6 +93,16 @@ export class CollisionSystem {
         result.hitWall = true;
         result.wallNormalX = -1;
       }
+    }
+
+    // Ground safety clamp to prevent infinite falling into the abyss
+    if (pos.y >= maxWorldY) {
+      pos.y = maxWorldY;
+      if (vel.y > 0) {
+        result.landingVelocityY = vel.y;
+        vel.y = 0;
+      }
+      result.grounded = true;
     }
 
     // 2. Platform collision queries

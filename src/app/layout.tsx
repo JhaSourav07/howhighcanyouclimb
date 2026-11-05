@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Jump King Browser - High Fidelity Recreation',
-  description: 'High-fidelity browser recreation of the tactical jumping adventure Jump King.',
+  title: 'How High Can You Climb ?',
+  description: 'How High Can You Climb ? — Tactical high-stakes vertical climbing platformer featuring Sir Hopsalot and 11 handcrafted biomes.',
   icons: {
     icon: '/assets/images/pla-sheet0.png',
   },

@@ -11,6 +11,10 @@ import { AudioSystem } from '@/game/systems/AudioSystem';
 import { InputSystem } from '@/game/systems/InputSystem';
 import { CameraSystem } from '@/game/systems/CameraSystem';
 import { LevelManager } from '@/game/systems/LevelManager';
+import { BiomeThemeEngine } from '@/game/systems/BiomeThemeEngine';
+import { BiomeParticleSystem } from '@/game/systems/BiomeParticleSystem';
+import { BIOME_CATALOG } from '@/game/data/biomes';
+import { BiomeId } from '@/types/game';
 import { useGameStore } from '@/store/gameStore';
 
 export class MainGameScene extends Phaser.Scene {
@@ -21,6 +25,9 @@ export class MainGameScene extends Phaser.Scene {
   private inputSystem!: InputSystem;
   private cameraSystem!: CameraSystem;
   private levelManager!: LevelManager;
+  private biomeThemeEngine!: BiomeThemeEngine;
+  private biomeParticleSystem!: BiomeParticleSystem;
+  private unsubscribeBiome?: () => void;
 
   private platforms: Platform[] = [];
   private environmentSprites: { sprite: Phaser.GameObjects.Sprite; screenIndex: number }[] = [];
@@ -52,11 +59,18 @@ export class MainGameScene extends Phaser.Scene {
     this.setupEnvironmentFrames();
 
     // 3. Systems initialization
-    this.collisionSystem = new CollisionSystem(PLATFORMS_DATA);
+    const initialBiome = useGameStore.getState().selectedBiomeId;
+    const biomeDef = BIOME_CATALOG[initialBiome] || BIOME_CATALOG.default;
+    const initialSpawnY = biomeDef.layoutHeight - (GAME_CONFIG.SCREEN_HEIGHT - 311.11);
+
     this.audioSystem = new AudioSystem();
     this.inputSystem = new InputSystem();
     this.cameraSystem = new CameraSystem();
-    this.levelManager = new LevelManager();
+    this.cameraSystem.setLayoutBounds(biomeDef.layoutHeight, biomeDef.totalScreens);
+    this.levelManager = new LevelManager(initialBiome);
+    this.collisionSystem = new CollisionSystem(this.levelManager.allPlatforms, biomeDef.layoutHeight);
+    this.biomeThemeEngine = new BiomeThemeEngine(this);
+    this.biomeParticleSystem = new BiomeParticleSystem(this);
 
     // 4. Create particle textures
     this.createParticleTextures();
@@ -64,7 +78,7 @@ export class MainGameScene extends Phaser.Scene {
     // 5. Audio & Physics callbacks
     this.playerPhysics = new PlayerPhysics(
       GAME_CONFIG.PLAYER_START.X,
-      GAME_CONFIG.PLAYER_START.Y,
+      initialSpawnY,
       this.collisionSystem,
       {
         onJump: (jumpResult) => {
@@ -96,7 +110,7 @@ export class MainGameScene extends Phaser.Scene {
     this.player = new Player(this, this.playerPhysics);
 
     // 8. Render collision platforms (invisible in authentic mode, depth 2)
-    for (const data of PLATFORMS_DATA) {
+    for (const data of this.levelManager.allPlatforms) {
       const plat = new Platform(this, data);
       this.platforms.push(plat);
     }
@@ -107,16 +121,24 @@ export class MainGameScene extends Phaser.Scene {
     this.cameraSystem.update(this.playerPhysics.position, true);
     this.cameras.main.centerOn(this.cameraSystem.currentX, this.cameraSystem.currentY);
 
+    // 10. Initial Biome application
+    this.applyBiome(initialBiome);
+
     // Initial HUD update & offscreen culling
     this.cullOffscreenObjects(0);
     this.updateHUD();
 
-    // Subscribe to store for platform guides toggle
+    // Subscribe to store for platform guides toggle & biome switching
     const unsubscribeGuides = useGameStore.subscribe((state, prevState) => {
       if (state.showPlatformGuides !== prevState.showPlatformGuides) {
         this.cullOffscreenObjects(this.cameraSystem.getScreenIndex());
       }
+      if (state.selectedBiomeId !== prevState.selectedBiomeId) {
+        this.applyBiome(state.selectedBiomeId);
+      }
     });
+    this.unsubscribeBiome = unsubscribeGuides;
+
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       unsubscribeGuides();
     });
@@ -239,8 +261,51 @@ export class MainGameScene extends Phaser.Scene {
       useGameStore.getState().triggerVictory();
     }
 
+    // Update ambient biome particles
+    this.biomeParticleSystem.update(dt, this.cameraSystem.currentX, this.cameraSystem.currentY);
+
     // Synchronize HUD state with React store
     this.updateHUD();
+  }
+
+  public applyBiome(biomeId: BiomeId): void {
+    const biome = BIOME_CATALOG[biomeId] || BIOME_CATALOG.default;
+    this.levelManager.setBiome(biomeId);
+
+    // Update camera layout height & total screens
+    this.cameraSystem.setLayoutBounds(biome.layoutHeight, biome.totalScreens);
+
+    // Rebuild collision system with the biome's platforms and layout height
+    this.collisionSystem = new CollisionSystem(this.levelManager.allPlatforms, biome.layoutHeight);
+    if (this.playerPhysics) {
+      this.playerPhysics.collisionSystem = this.collisionSystem;
+    }
+
+    // Re-instantiate platform game objects
+    for (const p of this.platforms) {
+      p.destroy();
+    }
+    this.platforms = [];
+    for (const data of this.levelManager.allPlatforms) {
+      const plat = new Platform(this, data);
+      this.platforms.push(plat);
+    }
+
+    // Apply visual biome skinning and particles
+    this.biomeThemeEngine.applyBiome(biome, this.environmentSprites, this.platforms);
+    this.biomeParticleSystem.setBiome(biome);
+
+    // Reset player position to ground of selected biome
+    const groundY = biome.layoutHeight - (GAME_CONFIG.SCREEN_HEIGHT - 311.11);
+    if (this.playerPhysics) {
+      this.playerPhysics.position = { x: GAME_CONFIG.PLAYER_START.X, y: groundY };
+      this.playerPhysics.velocity = { x: 0, y: 0 };
+      this.playerPhysics.setState('idle');
+      this.cameraSystem.update(this.playerPhysics.position, true);
+      this.cameras.main.centerOn(this.cameraSystem.currentX, this.cameraSystem.currentY);
+      this.cullOffscreenObjects(this.cameraSystem.getScreenIndex());
+      this.updateHUD();
+    }
   }
 
   private cullOffscreenObjects(currentScreen: number): void {
@@ -277,18 +342,27 @@ export class MainGameScene extends Phaser.Scene {
   }
 
   public resetPlayer(): void {
+    const biomeId = useGameStore.getState().selectedBiomeId;
+    const biome = BIOME_CATALOG[biomeId] || BIOME_CATALOG.default;
+    const groundY = biome.layoutHeight - (GAME_CONFIG.SCREEN_HEIGHT - 311.11);
+
     this.playerPhysics.position = {
       x: GAME_CONFIG.PLAYER_START.X,
-      y: GAME_CONFIG.PLAYER_START.Y,
+      y: groundY,
     };
     this.playerPhysics.velocity = { x: 0, y: 0 };
     this.playerPhysics.setState('idle');
     this.cameraSystem.update(this.playerPhysics.position, true);
+    this.cameras.main.centerOn(this.cameraSystem.currentX, this.cameraSystem.currentY);
+    this.cullOffscreenObjects(this.cameraSystem.getScreenIndex());
     useGameStore.getState().resetGame();
   }
 
   public destroyScene(): void {
     this.inputSystem?.detach();
+    this.unsubscribeBiome?.();
+    this.biomeThemeEngine?.destroy();
+    this.biomeParticleSystem?.clear();
     if (this.environmentSprites) {
       for (const item of this.environmentSprites) {
         item.sprite?.destroy();

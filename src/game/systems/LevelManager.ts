@@ -1,10 +1,22 @@
-import { PlatformData, ScreenMetadata } from '@/types/game';
-import { PLATFORMS_DATA, SCREENS_DATA } from '@/game/data/levels';
+import { PlatformData, ScreenMetadata, BiomeId } from '@/types/game';
+import { getPlatformsForBiome, getScreensForBiome } from '@/game/data/levels';
 import { GAME_CONFIG } from '@/game/config/gameConfig';
+import { BIOME_CATALOG } from '@/game/data/biomes';
 
 export class LevelManager {
-  public readonly allPlatforms: PlatformData[] = PLATFORMS_DATA;
-  public readonly allScreens: ScreenMetadata[] = SCREENS_DATA;
+  private currentBiomeId: BiomeId = 'default';
+  public allPlatforms: PlatformData[] = getPlatformsForBiome('default');
+  public allScreens: ScreenMetadata[] = getScreensForBiome('default');
+
+  constructor(initialBiome: BiomeId = 'default') {
+    this.setBiome(initialBiome);
+  }
+
+  public setBiome(biomeId: BiomeId): void {
+    this.currentBiomeId = biomeId;
+    this.allPlatforms = getPlatformsForBiome(biomeId);
+    this.allScreens = getScreensForBiome(biomeId);
+  }
 
   public getScreenMetadata(screenIndex: number): ScreenMetadata {
     const clamped = Math.max(0, Math.min(this.allScreens.length - 1, screenIndex));

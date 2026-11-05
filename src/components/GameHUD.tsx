@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { useGameStore } from '@/store/gameStore';
-import { Volume2, VolumeX, RotateCcw, Layers } from 'lucide-react';
+import { BIOME_CATALOG } from '@/game/data/biomes';
+import { Volume2, VolumeX, RotateCcw, Layers, Compass } from 'lucide-react';
 
 interface GameHUDProps {
   onReset: () => void;
@@ -12,6 +13,7 @@ export const GameHUD: React.FC<GameHUDProps> = ({ onReset }) => {
   const {
     screenIndex,
     totalScreens,
+    selectedBiomeId,
     jumpChargePercent,
     isCharging,
     altitudeMeters,
@@ -21,21 +23,43 @@ export const GameHUD: React.FC<GameHUDProps> = ({ onReset }) => {
     showPlatformGuides,
     toggleMute,
     togglePlatformGuides,
+    openBiomeSelector,
   } = useGameStore();
+
+  const currentBiome = BIOME_CATALOG[selectedBiomeId] || BIOME_CATALOG.default;
 
   return (
     <div className="absolute inset-x-0 top-0 p-4 pointer-events-none select-none z-20 flex flex-col gap-2">
       {/* Top Bar Stats */}
       <div className="flex justify-between items-center text-xs font-mono font-bold tracking-wider text-neutral-300 drop-shadow-md">
         <div className="bg-black/60 px-3 py-1.5 rounded border border-neutral-800 pointer-events-auto flex items-center gap-3">
-          <span className="text-amber-400">
+          <span className="text-amber-400 font-bold">
             SCREEN {screenIndex + 1}/{totalScreens}
+          </span>
+          <span className="text-neutral-500">•</span>
+          <span
+            className="text-[11px] font-mono px-1.5 py-0.5 rounded"
+            style={{ backgroundColor: `${currentBiome.accentColor}22`, color: currentBiome.accentColor }}
+          >
+            {currentBiome.name}
           </span>
           <span className="text-neutral-500">•</span>
           <span className="text-emerald-400">{altitudeMeters}m</span>
         </div>
 
         <div className="flex gap-2 pointer-events-auto">
+          <button
+            type="button"
+            onClick={(e) => {
+              (e.currentTarget as HTMLElement)?.blur();
+              openBiomeSelector();
+            }}
+            className="p-1.5 rounded bg-black/60 border border-neutral-800 text-neutral-400 hover:text-amber-400 focus-visible:ring-2 focus-visible:ring-amber-400 outline-none transition-colors"
+            aria-label="Select Biome"
+            title="Select Biome"
+          >
+            <Compass size={16} />
+          </button>
           <button
             type="button"
             onClick={(e) => {

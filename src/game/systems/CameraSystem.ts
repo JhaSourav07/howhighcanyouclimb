@@ -8,6 +8,15 @@ export class CameraSystem {
   public targetY: number = 14940;
 
   public currentScreenIndex: number = 0;
+  public layoutHeight: number = GAME_CONFIG.LAYOUT_HEIGHT;
+  public totalScreens: number = GAME_CONFIG.TOTAL_SCREENS;
+  private groundCenterY: number = 14940;
+
+  public setLayoutBounds(layoutHeight: number, totalScreens: number): void {
+    this.layoutHeight = layoutHeight;
+    this.totalScreens = totalScreens;
+    this.groundCenterY = layoutHeight - 180;
+  }
 
   /**
    * Updates camera target based on player position.
@@ -18,9 +27,9 @@ export class CameraSystem {
     this.targetX = Math.round((playerPos.x - 240) / 480) * 480 + 240;
     this.targetY = Math.round((playerPos.y - 180) / 360) * 360 + 180;
 
-    // Calculate screen index (0 at bottom, 41 at top)
-    const rawIndex = Math.floor((GAME_CONFIG.LAYOUT_HEIGHT - playerPos.y) / GAME_CONFIG.SCREEN_HEIGHT);
-    this.currentScreenIndex = Math.max(0, Math.min(GAME_CONFIG.TOTAL_SCREENS - 1, rawIndex));
+    // Calculate screen index (0 at bottom, totalScreens - 1 at top)
+    const rawIndex = Math.floor((this.layoutHeight - playerPos.y) / GAME_CONFIG.SCREEN_HEIGHT);
+    this.currentScreenIndex = Math.max(0, Math.min(this.totalScreens - 1, rawIndex));
 
     if (instant) {
       this.currentX = this.targetX;
@@ -38,8 +47,7 @@ export class CameraSystem {
 
   public getAltitudeMeters(): number {
     // Each screen is 360px -> ~7.2 meters (0.02 m/px)
-    // Screen 0 room center is 14940, representing 0m ground altitude
-    const distanceClimbedPx = 14940 - this.currentY;
+    const distanceClimbedPx = this.groundCenterY - this.currentY;
     return Math.max(0, Math.round(distanceClimbedPx * 0.02));
   }
 }

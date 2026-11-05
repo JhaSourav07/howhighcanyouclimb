@@ -1,6 +1,7 @@
 import { create } from 'zustand';
-import { GameHUDState } from '@/types/game';
+import { GameHUDState, BiomeId } from '@/types/game';
 import { JumpResult } from '@/game/physics/JumpController';
+import { BIOME_CATALOG } from '@/game/data/biomes';
 
 export interface TutorialState {
   isTutorialActive: boolean;
@@ -13,7 +14,15 @@ export interface TutorialState {
   hasBumpedWall: boolean;
 }
 
-interface GameStore extends GameHUDState, TutorialState {
+export interface BiomeStoreState {
+  selectedBiomeId: BiomeId;
+  isBiomeSelectorOpen: boolean;
+  openBiomeSelector: () => void;
+  closeBiomeSelector: () => void;
+  selectBiome: (biomeId: BiomeId) => void;
+}
+
+interface GameStore extends GameHUDState, TutorialState, BiomeStoreState {
   isMuted: boolean;
   isPaused: boolean;
   isVictory: boolean;
@@ -55,9 +64,25 @@ const getInitialTutorialState = (): boolean => {
   }
 };
 
+const getInitialBiomeState = (): BiomeId => {
+  if (typeof window === 'undefined') return 'default';
+  try {
+    const saved = localStorage.getItem('jump_king_selected_biome') as BiomeId;
+    if (saved && BIOME_CATALOG[saved]) {
+      return saved;
+    }
+    return 'default';
+  } catch {
+    return 'default';
+  }
+};
+
+const initialBiomeId = getInitialBiomeState();
+const initialTotalScreens = BIOME_CATALOG[initialBiomeId]?.totalScreens || 42;
+
 export const useGameStore = create<GameStore>((set, get) => ({
   screenIndex: 0,
-  totalScreens: 42,
+  totalScreens: initialTotalScreens,
   jumpChargePercent: 0,
   isCharging: false,
   altitudeMeters: 0,
@@ -67,6 +92,26 @@ export const useGameStore = create<GameStore>((set, get) => ({
   isPaused: false,
   isVictory: false,
   showPlatformGuides: true,
+
+  // Biome state
+  selectedBiomeId: initialBiomeId,
+  isBiomeSelectorOpen: false,
+  openBiomeSelector: () => set({ isBiomeSelectorOpen: true, isPaused: true }),
+  closeBiomeSelector: () => set({ isBiomeSelectorOpen: false, isPaused: false }),
+  selectBiome: (biomeId: BiomeId) => {
+    try {
+      localStorage.setItem('jump_king_selected_biome', biomeId);
+    } catch {}
+    const biome = BIOME_CATALOG[biomeId];
+    set({
+      selectedBiomeId: biomeId,
+      totalScreens: biome ? biome.totalScreens : 42,
+      isBiomeSelectorOpen: false,
+      isPaused: false,
+      screenIndex: 0,
+      altitudeMeters: 0,
+    });
+  },
 
   // Tutorial initial state
   isTutorialActive: getInitialTutorialState(),
@@ -129,7 +174,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     try {
       localStorage.setItem('jump_king_tutorial_done', 'true');
     } catch {}
-    set({ isTutorialActive: false });
+    set({ isTutorialActive: false, isBiomeSelectorOpen: true, isPaused: true });
   },
   nextTutorialStep: () =>
     set((state) => ({ tutorialStep: Math.min(4, state.tutorialStep + 1) })),

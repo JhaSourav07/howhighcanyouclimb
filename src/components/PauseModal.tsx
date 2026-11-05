@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useGameStore } from '@/store/gameStore';
-import { Play, RotateCcw, HelpCircle } from 'lucide-react';
+import { Play, RotateCcw, HelpCircle, Compass } from 'lucide-react';
 
 interface PauseModalProps {
   onResume: () => void;
@@ -10,7 +10,7 @@ interface PauseModalProps {
 }
 
 export const PauseModal: React.FC<PauseModalProps> = ({ onResume, onReset }) => {
-  const { isPaused, startTutorial } = useGameStore();
+  const { isPaused, startTutorial, openBiomeSelector } = useGameStore();
 
   if (!isPaused) return null;
 
@@ -35,10 +35,21 @@ export const PauseModal: React.FC<PauseModalProps> = ({ onResume, onReset }) => 
           <button
             type="button"
             onClick={() => {
+              openBiomeSelector();
+            }}
+            className="w-full py-2 px-4 bg-neutral-800 hover:bg-neutral-700 text-amber-300 font-bold rounded flex items-center justify-center gap-2 transition-transform active:scale-95 text-xs"
+          >
+            <Compass size={14} />
+            <span>CHANGE BIOME</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
               startTutorial();
               onResume();
             }}
-            className="w-full py-2 px-4 bg-neutral-800 hover:bg-neutral-700 text-amber-300 font-bold rounded flex items-center justify-center gap-2 transition-transform active:scale-95 text-xs"
+            className="w-full py-2 px-4 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-bold rounded flex items-center justify-center gap-2 transition-transform active:scale-95 text-xs"
           >
             <HelpCircle size={14} />
             <span>INTERACTIVE TUTORIAL</span>

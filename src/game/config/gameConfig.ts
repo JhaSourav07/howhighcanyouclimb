@@ -27,6 +27,7 @@ export const GAME_CONFIG = {
     HEIGHT: 32,
   },
 
-  // Target portrait viewport ratio (9:16)
-  PORTRAIT_ASPECT_RATIO: 9 / 16,
+  // Native per-screen aspect ratio (4:3)
+  ASPECT_RATIO: 4 / 3,
+  SCREEN_ASPECT_RATIO: 4 / 3,
 } as const;

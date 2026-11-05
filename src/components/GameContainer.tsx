@@ -62,33 +62,42 @@ export const GameContainer: React.FC = () => {
 
   return (
     <main className="fixed inset-0 w-screen h-screen bg-[#080808] flex items-center justify-center p-0 md:p-4 overflow-hidden select-none">
-      <div className="relative w-full h-full max-w-7xl flex items-center justify-center gap-6">
+      <div className="relative w-full h-full max-w-[1920px] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-4 xl:gap-6 min-w-0 min-h-0">
         {/* Left Desktop Ad Unit */}
         <DesktopAdSlot position="left" />
 
-        {/* 9:16 Portrait Playable Area */}
-        <div className="relative h-full max-h-[100dvh] aspect-[9/16] w-auto max-w-[calc(100dvh*9/16)] bg-[#111111] shadow-2xl border-0 md:border md:border-neutral-800 rounded-none md:rounded-lg overflow-hidden flex flex-col items-center justify-center">
-          {/* Phaser Canvas (SSR disabled) */}
-          <GameCanvas onManagerReady={handleManagerReady} />
+        {/* Responsive Playable Area */}
+        {/* Strictly 4:3 native aspect ratio across laptop/desktop and mobile viewports */}
+        <div className="relative w-full h-full md:w-auto md:h-full flex flex-col items-center justify-between md:justify-center min-w-0 min-h-0">
+          <div
+            className="relative w-full aspect-[4/3] md:w-auto md:h-full md:aspect-[4/3] bg-[#111111] shadow-2xl border-0 md:border md:border-neutral-800 rounded-none md:rounded-lg overflow-hidden flex items-center justify-center"
+            style={{
+              maxHeight: 'calc(100dvh - 2rem)',
+              maxWidth: 'min(100%, calc((100dvh - 2rem) * 4 / 3))',
+            }}
+          >
+            {/* Phaser Canvas (SSR disabled) */}
+            <GameCanvas onManagerReady={handleManagerReady} />
 
-          {/* In-Game HUD */}
-          {isReady && <GameHUD onReset={handleReset} />}
+            {/* In-Game HUD */}
+            {isReady && <GameHUD onReset={handleReset} />}
 
-          {/* Mobile Touch Controller (Visible on mobile/touch viewports) */}
+            {/* Pause Modal */}
+            <PauseModal onResume={togglePause} onReset={handleReset} />
+
+            {/* Summit Victory Modal */}
+            <VictoryModal onRestart={handleReset} />
+
+            {/* Interactive Tutorial */}
+            {isReady && <InteractiveTutorial />}
+          </div>
+
+          {/* Mobile Touch Controller (Visible on touch/mobile viewports) */}
           {isReady && (
-            <div className="md:hidden">
+            <div className="md:hidden w-full flex-1 relative flex items-end justify-between px-6 pb-6 pt-2 select-none landscape:absolute landscape:inset-x-0 landscape:bottom-2 landscape:pointer-events-none">
               <MobileControls onInput={handleVirtualInput} />
             </div>
           )}
-
-          {/* Pause Modal */}
-          <PauseModal onResume={togglePause} onReset={handleReset} />
-
-          {/* Summit Victory Modal */}
-          <VictoryModal onRestart={handleReset} />
-
-          {/* Interactive Tutorial */}
-          {isReady && <InteractiveTutorial />}
         </div>
 
         {/* Right Desktop Ad Unit */}

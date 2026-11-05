@@ -38,7 +38,8 @@ export class CameraSystem {
 
   public getAltitudeMeters(): number {
     // Each screen is 360px -> ~7.2 meters (0.02 m/px)
-    const distanceClimbedPx = GAME_CONFIG.PLAYER_START.Y - this.currentY;
+    // Screen 0 room center is 14940, representing 0m ground altitude
+    const distanceClimbedPx = 14940 - this.currentY;
     return Math.max(0, Math.round(distanceClimbedPx * 0.02));
   }
 }

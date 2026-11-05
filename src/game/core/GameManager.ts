@@ -5,6 +5,7 @@ import { MainGameScene } from '@/game/scenes/MainGameScene';
 export class GameManager {
   private game: Phaser.Game | null = null;
   private scene: MainGameScene | null = null;
+  private resizeHandler: (() => void) | null = null;
 
   public init(container: HTMLElement): void {
     if (this.game) return;
@@ -29,6 +30,12 @@ export class GameManager {
     this.game.events.once(Phaser.Core.Events.READY, () => {
       this.scene = this.game?.scene.getScene('MainGameScene') as MainGameScene;
     });
+
+    // Handle dynamic window resizing to update scale canvas bounds
+    this.resizeHandler = () => {
+      this.game?.scale.refresh();
+    };
+    window.addEventListener('resize', this.resizeHandler);
   }
 
   public setVirtualInput(left: boolean, right: boolean, jump: boolean): void {
@@ -44,6 +51,10 @@ export class GameManager {
   }
 
   public destroy(): void {
+    if (this.resizeHandler) {
+      window.removeEventListener('resize', this.resizeHandler);
+      this.resizeHandler = null;
+    }
     if (this.scene) {
       this.scene.destroyScene();
       this.scene = null;

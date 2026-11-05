@@ -1,6 +1,7 @@
 {
   "name": "howhighcanyouclimb",
   "version": "1.0.0",
+  "description": "How High Can You Climb ? — Tactical high-stakes vertical climbing platformer featuring Sir Hopsalot and 11 handcrafted biomes",
   "private": true,
   "scripts": {
     "dev": "next dev",

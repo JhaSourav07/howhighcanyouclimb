@@ -30,13 +30,43 @@ export interface PlatformData {
   noMovement: boolean;
 }
 
+export type BiomeId =
+  | 'default'
+  | 'volcano'
+  | 'worldtree'
+  | 'glacier'
+  | 'cyberpunk'
+  | 'atlantis'
+  | 'steampunk'
+  | 'necropolis'
+  | 'cosmic'
+  | 'gothic'
+  | 'candyland';
+
 export interface ScreenMetadata {
   index: number;
   topY: number;
   bottomY: number;
   centerY: number;
   name?: string;
-  theme: 'castle' | 'forest' | 'mountain' | 'spire' | 'clouds' | 'summit';
+  theme:
+    | 'default'
+    | 'castle'
+    | 'forest'
+    | 'mountain'
+    | 'spire'
+    | 'clouds'
+    | 'summit'
+    | 'volcano'
+    | 'worldtree'
+    | 'glacier'
+    | 'cyberpunk'
+    | 'atlantis'
+    | 'steampunk'
+    | 'necropolis'
+    | 'cosmic'
+    | 'gothic'
+    | 'candyland';
 }
 
 export interface InputState {

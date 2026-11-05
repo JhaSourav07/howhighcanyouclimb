@@ -1,4 +1,5 @@
-import { PlatformData, ScreenMetadata } from "@/types/game";
+import { PlatformData, ScreenMetadata, BiomeId } from "@/types/game";
+import { BIOME_CATALOG } from "@/game/data/biomes";
 
 export const PLATFORMS_DATA: PlatformData[] = [
   {
@@ -3467,3 +3468,79 @@ export const SCREENS_DATA: ScreenMetadata[] = Array.from({ length: 42 }, (_, ind
     theme,
   };
 });
+
+export const EXTRA_SUMMIT_PLATFORMS: PlatformData[] = [
+  // Screens 42 to 49 for 50-screen custom biomes
+  { id: 1000, screenIndex: 42, x: 80, y: 2800, width: 90, height: 24, isSlippery: false, noMovement: false },
+  { id: 1001, screenIndex: 42, x: 270, y: 2710, width: 80, height: 24, isSlippery: false, noMovement: false },
+  { id: 1002, screenIndex: 42, x: 130, y: 2620, width: 75, height: 24, isSlippery: false, noMovement: false },
+  { id: 1003, screenIndex: 42, x: 390, y: 2550, width: 100, height: 24, isSlippery: false, noMovement: false },
+
+  { id: 1004, screenIndex: 43, x: 100, y: 2440, width: 90, height: 24, isSlippery: false, noMovement: false },
+  { id: 1005, screenIndex: 43, x: 260, y: 2350, width: 85, height: 24, isSlippery: false, noMovement: false },
+  { id: 1006, screenIndex: 43, x: 380, y: 2260, width: 80, height: 24, isSlippery: false, noMovement: false },
+  { id: 1007, screenIndex: 43, x: 180, y: 2190, width: 90, height: 24, isSlippery: false, noMovement: false },
+
+  { id: 1008, screenIndex: 44, x: 90, y: 2080, width: 85, height: 24, isSlippery: false, noMovement: false },
+  { id: 1009, screenIndex: 44, x: 240, y: 1990, width: 80, height: 24, isSlippery: false, noMovement: false },
+  { id: 1010, screenIndex: 44, x: 390, y: 1900, width: 85, height: 24, isSlippery: false, noMovement: false },
+
+  { id: 1011, screenIndex: 45, x: 120, y: 1720, width: 90, height: 24, isSlippery: false, noMovement: false },
+  { id: 1012, screenIndex: 45, x: 280, y: 1630, width: 80, height: 24, isSlippery: false, noMovement: false },
+  { id: 1013, screenIndex: 45, x: 160, y: 1540, width: 85, height: 24, isSlippery: false, noMovement: false },
+  { id: 1014, screenIndex: 45, x: 370, y: 1470, width: 95, height: 24, isSlippery: false, noMovement: false },
+
+  { id: 1015, screenIndex: 46, x: 80, y: 1360, width: 90, height: 24, isSlippery: false, noMovement: false },
+  { id: 1016, screenIndex: 46, x: 250, y: 1270, width: 85, height: 24, isSlippery: false, noMovement: false },
+  { id: 1017, screenIndex: 46, x: 400, y: 1180, width: 80, height: 24, isSlippery: false, noMovement: false },
+
+  { id: 1018, screenIndex: 47, x: 100, y: 1000, width: 90, height: 24, isSlippery: false, noMovement: false },
+  { id: 1019, screenIndex: 47, x: 260, y: 910, width: 80, height: 24, isSlippery: false, noMovement: false },
+  { id: 1020, screenIndex: 47, x: 140, y: 820, width: 85, height: 24, isSlippery: false, noMovement: false },
+  { id: 1021, screenIndex: 47, x: 380, y: 750, width: 95, height: 24, isSlippery: false, noMovement: false },
+
+  { id: 1022, screenIndex: 48, x: 90, y: 640, width: 85, height: 24, isSlippery: false, noMovement: false },
+  { id: 1023, screenIndex: 48, x: 240, y: 550, width: 80, height: 24, isSlippery: false, noMovement: false },
+  { id: 1024, screenIndex: 48, x: 390, y: 460, width: 85, height: 24, isSlippery: false, noMovement: false },
+
+  { id: 1025, screenIndex: 49, x: 120, y: 280, width: 90, height: 24, isSlippery: false, noMovement: false },
+  { id: 1026, screenIndex: 49, x: 360, y: 220, width: 90, height: 24, isSlippery: false, noMovement: false },
+  // Crown Summit Throne Platform
+  { id: 1027, screenIndex: 49, x: 240, y: 140, width: 180, height: 32, isSlippery: false, noMovement: false },
+];
+
+export function getPlatformsForBiome(biomeId: BiomeId): PlatformData[] {
+  if (biomeId === 'default') {
+    return PLATFORMS_DATA;
+  }
+  return [...PLATFORMS_DATA, ...EXTRA_SUMMIT_PLATFORMS];
+}
+
+export function getScreensForBiome(biomeId: BiomeId): ScreenMetadata[] {
+  const biome = BIOME_CATALOG[biomeId] || BIOME_CATALOG.default;
+  if (biome.id === 'default') {
+    return SCREENS_DATA;
+  }
+
+  const total = biome.totalScreens;
+  const layoutH = biome.layoutHeight;
+
+  return Array.from({ length: total }, (_, index) => {
+    const bottomY = layoutH - index * 360;
+    const topY = bottomY - 360;
+    const centerY = (topY + bottomY) / 2;
+
+    const tier = biome.tiers.find(
+      (t) => index >= t.range[0] && index <= t.range[1]
+    ) || biome.tiers[biome.tiers.length - 1];
+
+    return {
+      index,
+      topY,
+      bottomY,
+      centerY,
+      name: `${tier.name} (Screen ${index + 1})`,
+      theme: biome.id,
+    };
+  });
+}
